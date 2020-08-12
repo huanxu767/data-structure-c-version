@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "./线性表/LinearTable.h"
+#include "./SqList/LinearTable.h"
 #include "./base/vector_demo.h"
 #include "./sorting_algorithm/sort.h"
+#include "SqList/LinkList.h"
 
 extern "C" {
-    #include "./线性表/LinkTable.h";
     #include "./base/C_demo.h";
 }
 
@@ -30,7 +30,7 @@ int main() {
 //    顺序表demo
 //    studyLinearTable();
       //链表
-    printDemo();
+    LinkListDemo();
 
 //    vector案例
 //     vectorDemo();

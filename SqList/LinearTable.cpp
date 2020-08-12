@@ -236,7 +236,7 @@ bool mergeTwoSortList(SqList &list1, SqList &list2, SqList &list) {
 }
 
 /**
- * 打印线性表
+ * 打印SqList
  */
 void printLinearTable(SqList &list){
     printf("\n");
