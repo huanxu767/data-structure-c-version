@@ -14,5 +14,6 @@ add_executable(clearn main.cpp
 
         sorting_algorithm/sort.cpp
         sorting_algorithm/sort.h
-        SqList/LinkList.cpp
-        SqList/LinkList.h)
+
+        SqList/SingleLinkList.cpp
+        SqList/SingleLinkList.h)

@@ -1,10 +1,11 @@
 //
-// Created by 许欢 on 2020/8/12.
+// Created by 许欢 on 2020/8/13.
 //
+
+#include "SingleLinkList.h"
 
 #include <cstdlib>
 #include <printf.h>
-#include "LinkList.h"
 
 typedef int ElemType ;
 
@@ -108,17 +109,67 @@ void insetNode(LNode *L,ElemType data,int position){
     preNode->next = newNode;
     printList(L);
 }
+/**
+ * 删除指定位置的元素
+ * 普通 O(n)
+ * @param L
+ * @param position
+ */
+void deleteNode(LNode *L,int position){
+    //找到前驱节点
+    LNode* preNode = getElem(L,position-1);
+    //获取被删除的节点
+    LNode* prepareDeleteNode = preNode->next;
+    //前驱节点的指针域 指向 后面的后面
+    preNode->next = prepareDeleteNode->next;
+    //释放空间
+    free(prepareDeleteNode);
+    printList(L);
+}
 
-void LinkListDemo(){
+/**
+ * 求表长 不含头节点
+ * @param L
+ * @return
+ */
+int getLength(LNode *L){
+    int len = 0;
+    LNode *p = L;
+    while (p->next != NULL){
+        p = p->next;
+        len++;
+    }
+    printf("长度为:%d\n",len);
+    return len;
+}
+/**
+ * 删除指定位置的元素
+ * 优化后 不需要找前驱节点 O(1)
+ * 总体思路：把后继元素的值地址 赋值给前面
+ * 将被删除节点P的后继节点HP的值赋给P
+ * 将P的next指针 指 HP.next
+ * 释放HP
+ * @param L
+ * @param position
+ */
+void deleteNode2(LNode *L,LNode *p){
+
+}
+
+
+void SingleLinkListDemo(){
     //头插
-//    LinkList L;
-//    initLinkList(L);
-//    headInsert(L);
+    LinkList L;
+    initLinkList(L);
+    headInsert(L);
 
     //尾插
     LinkList L1;
     initLinkList(L1);
     tailInsert(L1);
+
+    getLength(L1);
+
     //按值查找
     LNode *node = locateElem(L1,3);
     printf("查找到到值为%d\n",node->data);
@@ -127,5 +178,7 @@ void LinkListDemo(){
     printf("查找到到值为%d\n",node2->data);
 
     insetNode(L1,22,3);
+    deleteNode(L1,3);
+
 
 }

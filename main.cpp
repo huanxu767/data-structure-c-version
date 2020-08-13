@@ -4,7 +4,7 @@
 #include "./SqList/LinearTable.h"
 #include "./base/vector_demo.h"
 #include "./sorting_algorithm/sort.h"
-#include "SqList/LinkList.h"
+#include "SqList/SingleLinkList.h"
 
 extern "C" {
     #include "./base/C_demo.h";
@@ -30,7 +30,7 @@ int main() {
 //    顺序表demo
 //    studyLinearTable();
       //链表
-    LinkListDemo();
+    SingleLinkListDemo();
 
 //    vector案例
 //     vectorDemo();
